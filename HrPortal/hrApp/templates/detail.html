@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content%}
+
+<div class="panel panel-default">
+        <div class="panel-heading">
+
+
+            <center><h3> <label>{{ applicant.name }}</label></h3></center>
+
+        </div>
+        <div class="panel-body">
+ <div class="card text-center text-white bg-info">
+            <div class="text-center">
+                <label>Email:</label>
+                {{ applicant.email }}
+            </div>
+            <div class="text-center">
+                <label>Phone:</label>
+                {{ applicant.phone }}
+            </div>
+            <div class="text-center">
+                <label>Choice:</label>
+                {{ applicant.catagory }}</div>
+
+            <div class="text-center">
+                <label>CV:</label>
+                <a href="{{ applicant.CvResume.url }}" download alt="Download">
+                <button class="fa fa-download"></button></a>
+            </div>
+
+           <div class="text-center">
+               <label>View Image:</label>
+               <a href="{{ applicant.CvResume.url }}">View CV</a></div>
+
+
+
+                <div class="card-header">
+                    <label>Motivation:</label>
+                </div>
+                <div class="card-body">
+
+                    <p class="card-text">{{ applicant.motivation }}</p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}

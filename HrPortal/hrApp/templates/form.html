@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3 class="text-center"> Application Form</h3>
+<div class="card-body">
+    <form method="POST" enctype="multipart/form-data" style="padding-left: 10%;padding-right: 10%;">
+
+        {% csrf_token %}
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="frmName" class="font-size-lg">Name</label>
+                    <input id="frmName" type="text" name="name" placeholder="Your full name"
+                           class="form-control form-control-lg font-size-md" value="">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <label>How can we contact you?</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input id="frmEmail" type="text" name="email" placeholder="Email"
+                           class="form-control form-control-lg font-size-md" value="">
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input id="frmPhone" type="text" name="phone" placeholder="Phone"
+                           class="form-control form-control-lg font-size-md" value="">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="frmCV" class="font-size-lg">CV or Resume
+                </label>
+                <div class="custom-file">
+                    <input type="file" name="myFile">
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <h3></h3>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label class="font-size-lg">Applied Department</label>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="catagory" value="Quality Assurence">
+                        Quality Assurence
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="catagory" value="Developer">
+                        Developer
+                    </div>
+
+                    <div>
+                        <input class="form-check-input" type="checkbox" name="catagory" value="Project Manager">
+                        Project Manager
+                    </div>
+                    <div>
+                        <input class="form-check-input" type="checkbox" name="catagory" value="Data Analyst">
+
+                        Data Analyst
+                    </div>
+                    <div>
+                        <input class="form-check-input" type="checkbox" name="catagory" value="Front End(UI/UX)">
+                        Front End(UI/UX)
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="frmMotivation" class="font-size-lg">Motivation <small>(Max 1000 Letters)</small></label>
+                    <textarea id="frmMotivation" name="motivation"
+                              placeholder="Share us your motivation to take part in this program."
+                              class="form-control form-control-lg font-size-md"
+                              style="min-height: 100px;">
+
+                                </textarea>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-area">
+            <button type="submit" class="btn btn-outline-primary btn-lg px-sm-5">Apply</button>
+        </div>
+
+    </form>
+</div>
+{% endblock %}

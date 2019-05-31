@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+    <center><h2>HomePage</h2></center>
+
+<hr>
+
+<div class="form-row"> <span class="badge" style="float: right;">Logged in As: {{ user.username }}</span></div>
+    <h3><a href="{% url 'register' %}">Register New System User</a></h3>
+<div class="row">
+
+    <div class="col-md-6">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">SN</th>
+                <th scope="col">Name</th>
+                <th scope="col">Position</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% csrf_token %}
+
+            {% for i in allDataKey %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><a href="{% url 'applicationmodel-detail' i.id %}">{{ i.name }}</a></td>
+                    <td>{{ i.catagory }}</td>
+                    <td><a href="{% url 'home' i.id %}"><i class="fa fa-trash-o"></i>Delete</a></td>
+                </tr>
+
+                </tbody>
+            {% endfor %}
+        </table>
+    </div>
+
+</div>
+    <a class="badge" style="float: right;" href="{% url 'login' %}">Logout</a>
+
+{% endblock %}
